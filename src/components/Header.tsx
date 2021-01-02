@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { COLORS } from '../utils/consts';
 import { Logo } from './svgs/Logo';
+import { MEDIA } from '../utils/media';
 interface HeaderProps {}
 
 export const Header: React.FC<HeaderProps> = ({}) => {
@@ -41,8 +42,12 @@ const NavS = styled.nav`
     color: #fff;
     cursor: pointer;
     &:hover {
-      color: #f5b9a7;
+      color: #d46a6a;
     }
+  }
+
+  ${MEDIA.maxLg} {
+    display: none;
   }
 `;
 

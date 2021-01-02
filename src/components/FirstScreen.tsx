@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CitySrc from '../images/beautiful.jpg';
-import { COLORS } from '../utils/consts';
+import { MEDIA } from '../utils/media';
 import { DefaultButton } from './ui';
 
 export const FirstScreen: React.FC = ({}) => {
@@ -22,7 +22,14 @@ export const FirstScreen: React.FC = ({}) => {
                 If you do not think about the future, you cannot have one <br />{' '}
                 <span>(John Galsworthy)</span>
               </i>
-              <DefaultButton title='Next' onClick={() => console.log(1)} />
+              <ButtonWrapperS>
+                <DefaultButton
+                  styles={{ marginRight: '18px' }}
+                  title='About'
+                  onClick={() => console.log(1)}
+                />
+                <DefaultButton title='Download CV' onClick={() => console.log(1)} isFilled />
+              </ButtonWrapperS>
             </div>
           </WrapperDevS>
         </WrapperTitleS>
@@ -49,7 +56,7 @@ const WrapperS = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     opacity: 0.5;
     background: url(${CitySrc}) no-repeat bottom / cover;
   }
@@ -61,6 +68,16 @@ const WrapperS = styled.div`
     span {
       display: block;
       padding-left: 45%;
+    }
+
+    ${MEDIA.maxLg} {
+      margin: 0;
+    }
+    ${MEDIA.maxMd} {
+      font-size: 50px;
+      span {
+        padding-left: 25%;
+      }
     }
   }
   @keyframes gradient {
@@ -93,6 +110,13 @@ const WrapperDevS = styled.div`
     font-size: 12px;
     font-weight: 300;
   }
+
+  ${MEDIA.maxLg} {
+    margin: 20px 0 0 0px;
+    &::before {
+      display: none;
+    }
+  }
 `;
 
 const DeveloperNameS = styled.h2`
@@ -102,6 +126,12 @@ const DeveloperNameS = styled.h2`
 
 const WrapperTitleS = styled.div`
   display: flex;
+  ${MEDIA.maxLg} {
+    flex-direction: column;
+  }
 `;
 
-const ButtonS = styled.button``;
+const ButtonWrapperS = styled.div`
+  display: flex;
+  margin-top: 20px;
+`;
