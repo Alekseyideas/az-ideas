@@ -1,32 +1,40 @@
 module.exports = {
   siteMetadata: {
-    title: "aleks-z",
+    title: 'aleks-z',
   },
   plugins: [
-    "gatsby-plugin-styled-components",
+    'gatsby-plugin-styled-components',
+    // {
+    //   resolve: "gatsby-plugin-google-analytics",
+    //   options: {
+    //     trackingId: "",
+    //   },
+    // },
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        trackingId: "",
+        icon: 'src/images/icon.png',
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
+    'gatsby-transformer-sharp',
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        icon: "src/images/icon.png",
+        name: 'images',
+        path: './src/images/',
       },
+      __key: 'images',
     },
-    "gatsby-transformer-sharp",
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-plugin-typescript`,
       options: {
-        name: "images",
-        path: "./src/images/",
+        isTSX: true, // defaults to false
+        jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true, // defaults to false
       },
-      __key: "images",
     },
   ],
 };
