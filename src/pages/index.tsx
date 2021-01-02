@@ -2,6 +2,7 @@ import React from 'react';
 import { FirstScreen } from '../components/FirstScreen';
 import { MainWrapper } from '../components/MainWrapper';
 import { Slides } from '../components/Slides';
+import { Summary } from '../components/Summary';
 
 const IndexPage = () => {
   return (
@@ -9,7 +10,7 @@ const IndexPage = () => {
       <MainWrapper>
         <title>Home Page</title>
         <FirstScreen />
-        {/* <Slides /> */}
+        <Summary />
       </MainWrapper>
     </>
   );

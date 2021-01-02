@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { COLORS } from '../../utils/consts';
 import { MEDIA } from '../../utils/media';
 
@@ -19,16 +19,52 @@ export const DefaultButton: React.FC<DefaultButtonProps> = ({
   isFilled,
 }) => {
   return (
+    <FullBtnS style={styles} type={type} onClick={onClick} isFilled={isFilled}>
+      {title}
+    </FullBtnS>
+  );
+};
+
+interface DefaultButtonLinkProps {
+  title: string;
+  href: string;
+  target?: '_blank' | '_self' | '_parent' | '_top';
+  styles?: React.CSSProperties;
+  isFilled?: boolean;
+}
+
+export const DefaultButtonLink: React.FC<DefaultButtonLinkProps> = ({
+  title,
+  href,
+  target = '_self',
+  styles,
+  isFilled,
+}) => {
+  return (
+    <FullBtnLinkS style={styles} href={href} target={target} isFilled={isFilled}>
+      {title}
+    </FullBtnLinkS>
+  );
+};
+
+export const DefaultButtonWhite: React.FC<DefaultButtonProps> = ({
+  title,
+  onClick,
+  type = 'button',
+  styles,
+  isFilled,
+}) => {
+  return (
     <DefButtonS style={styles} type={type} onClick={onClick} isFilled={isFilled}>
       {title}
     </DefButtonS>
   );
 };
 
-export const DefButtonS = styled.button<{ isFilled: boolean }>`
-  display: flex;
+export const btnDefStyles = css<{ isFilled: boolean }>`
+  display: inline-flex;
   align-items: center;
-  padding: 5px 20px;
+  padding: 8px 20px;
   font-size: 14px;
   border: 1px solid white;
   outline: 0;
@@ -72,4 +108,56 @@ export const DefButtonS = styled.button<{ isFilled: boolean }>`
       : `
   background: none;
   `}
+`;
+
+export const btnFillStyles = css<{ isFilled: boolean }>`
+  ${btnDefStyles};
+
+  ${({ isFilled }) =>
+    isFilled
+      ? `
+   background: ${COLORS.accentActive};
+    border: 1px solid ${COLORS.accentActive};
+    color: white;
+
+  ${MEDIA.minLg} {
+    &:hover {
+      background: ${COLORS.mainAccent};
+      border: 1px solid ${COLORS.mainAccent};
+      color: white;
+    }
+    &:active {
+      background: ${COLORS.mainAccentActive};
+      border: 1px solid ${COLORS.mainAccentActive};
+      color: white;
+    }
+  }
+  `
+      : `
+  border: 1px solid ${COLORS.accentActive};
+  color: ${COLORS.accentActive};
+
+  ${MEDIA.minLg} {
+    &:hover {
+      border: 1px solid ${COLORS.mainAccent};
+      color: ${COLORS.mainAccent};
+    }
+    &:active {
+      border: 1px solid ${COLORS.mainAccentActive};
+      color: ${COLORS.mainAccentActive};
+    }
+  }
+  `}
+`;
+
+const DefButtonS = styled.button<{ isFilled: boolean }>`
+  ${btnDefStyles}
+`;
+
+const FullBtnS = styled(DefButtonS)`
+  ${btnFillStyles}
+`;
+
+const FullBtnLinkS = styled.a<{ isFilled: boolean }>`
+  ${btnFillStyles}
 `;

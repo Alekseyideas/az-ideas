@@ -2,12 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import CitySrc from '../images/beautiful.jpg';
 import { MEDIA } from '../utils/media';
-import { DefaultButton } from './ui';
+import { Container } from './Container';
+import { DefaultButtonWhite } from './ui';
 
 export const FirstScreen: React.FC = ({}) => {
   return (
     <WrapperS>
-      <div style={{ zIndex: 1, position: 'relative' }}>
+      <Container>
         <WrapperTitleS>
           <div>
             <h1>
@@ -23,17 +24,17 @@ export const FirstScreen: React.FC = ({}) => {
                 <span>(John Galsworthy)</span>
               </i>
               <ButtonWrapperS>
-                <DefaultButton
+                <DefaultButtonWhite
                   styles={{ marginRight: '18px' }}
                   title='About'
                   onClick={() => console.log(1)}
                 />
-                <DefaultButton title='Download CV' onClick={() => console.log(1)} isFilled />
+                <DefaultButtonWhite title='Download CV' onClick={() => console.log(1)} isFilled />
               </ButtonWrapperS>
             </div>
           </WrapperDevS>
         </WrapperTitleS>
-      </div>
+      </Container>
     </WrapperS>
   );
 };
@@ -46,9 +47,10 @@ const WrapperS = styled.div`
   justify-content: center;
   background: linear-gradient(-45deg, #000, #000, #3d3d3d, #000);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 10s ease infinite;
   color: #fff;
   text-align: left;
+
   &::before {
     content: '';
     display: block;
@@ -126,6 +128,8 @@ const DeveloperNameS = styled.h2`
 
 const WrapperTitleS = styled.div`
   display: flex;
+  justify-content: center;
+
   ${MEDIA.maxLg} {
     flex-direction: column;
   }
