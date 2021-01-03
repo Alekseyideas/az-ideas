@@ -9,6 +9,6 @@ export const COLORS = {
 
 export const DEF_PADDING = '40px';
 
-export const CONT_WIDTH = '1100px';
+export const CONT_WIDTH = '1600px';
 
 export const MY_EMAIL = 'alekseyideas@gmail.com';

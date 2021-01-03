@@ -143,8 +143,9 @@ export const btnFillStyles = css<{ isFilled: boolean }>`
       color: ${COLORS.mainAccent};
     }
     &:active {
-      border: 1px solid ${COLORS.mainAccentActive};
-      color: ${COLORS.mainAccentActive};
+      border: 1px solid ${COLORS.accentActive};
+      background: ${COLORS.accentActive};
+      color: white;
     }
   }
   `}

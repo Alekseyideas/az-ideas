@@ -26,7 +26,7 @@ export const FirstScreen: React.FC = ({}) => {
               <ButtonWrapperS>
                 <DefaultButtonWhite
                   styles={{ marginRight: '18px' }}
-                  title='About'
+                  title='Know more'
                   onClick={() => console.log(1)}
                 />
                 <DefaultButtonWhite title='Download CV' onClick={() => console.log(1)} isFilled />

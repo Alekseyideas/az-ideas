@@ -1,6 +1,8 @@
 import React from 'react';
 import { FirstScreen } from '../components/FirstScreen';
 import { MainWrapper } from '../components/MainWrapper';
+import { Services } from '../components/Services';
+import { Skills } from '../components/Skills';
 import { Slides } from '../components/Slides';
 import { Summary } from '../components/Summary';
 
@@ -11,6 +13,8 @@ const IndexPage = () => {
         <title>Home Page</title>
         <FirstScreen />
         <Summary />
+        <Skills />
+        <Services />
       </MainWrapper>
     </>
   );
