@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'aleks-z',
+    title: 'az-ideas',
   },
   plugins: [
     'gatsby-plugin-styled-components',

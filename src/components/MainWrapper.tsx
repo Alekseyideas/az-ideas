@@ -1,6 +1,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { COLORS, SIDE_BAR_WIDTH } from '../utils/consts';
+import { Footer } from './Footer';
 import { Header } from './Header';
 import { SideBar } from './SideBar';
 
@@ -16,6 +17,7 @@ export const MainWrapper: React.FC<MainWrapperProps> = ({ children, hideSideBar 
       <Header />
       <main>{children}</main>
       {hideSideBar ? null : <SideBar />}
+      <Footer />
     </>
   );
 };

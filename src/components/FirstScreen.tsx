@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import CitySrc from '../images/beautiful.jpg';
-import { COLORS } from '../utils/consts';
-import { DefaultButton } from './ui';
+import { MEDIA } from '../utils/media';
+import { Container } from './Container';
+import { DefaultButtonWhite } from './ui';
 
 export const FirstScreen: React.FC = ({}) => {
   return (
     <WrapperS>
-      <div style={{ zIndex: 1, position: 'relative' }}>
+      <Container>
         <WrapperTitleS>
           <div>
             <h1>
@@ -22,11 +23,18 @@ export const FirstScreen: React.FC = ({}) => {
                 If you do not think about the future, you cannot have one <br />{' '}
                 <span>(John Galsworthy)</span>
               </i>
-              <DefaultButton title='Next' onClick={() => console.log(1)} />
+              <ButtonWrapperS>
+                <DefaultButtonWhite
+                  styles={{ marginRight: '18px' }}
+                  title='Know more'
+                  onClick={() => console.log(1)}
+                />
+                <DefaultButtonWhite title='Download CV' onClick={() => console.log(1)} isFilled />
+              </ButtonWrapperS>
             </div>
           </WrapperDevS>
         </WrapperTitleS>
-      </div>
+      </Container>
     </WrapperS>
   );
 };
@@ -39,9 +47,10 @@ const WrapperS = styled.div`
   justify-content: center;
   background: linear-gradient(-45deg, #000, #000, #3d3d3d, #000);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 10s ease infinite;
   color: #fff;
   text-align: left;
+
   &::before {
     content: '';
     display: block;
@@ -49,7 +58,7 @@ const WrapperS = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     opacity: 0.5;
     background: url(${CitySrc}) no-repeat bottom / cover;
   }
@@ -61,6 +70,16 @@ const WrapperS = styled.div`
     span {
       display: block;
       padding-left: 45%;
+    }
+
+    ${MEDIA.maxLg} {
+      margin: 0;
+    }
+    ${MEDIA.maxMd} {
+      font-size: 50px;
+      span {
+        padding-left: 25%;
+      }
     }
   }
   @keyframes gradient {
@@ -93,6 +112,13 @@ const WrapperDevS = styled.div`
     font-size: 12px;
     font-weight: 300;
   }
+
+  ${MEDIA.maxLg} {
+    margin: 20px 0 0 0px;
+    &::before {
+      display: none;
+    }
+  }
 `;
 
 const DeveloperNameS = styled.h2`
@@ -102,6 +128,14 @@ const DeveloperNameS = styled.h2`
 
 const WrapperTitleS = styled.div`
   display: flex;
+  justify-content: center;
+
+  ${MEDIA.maxLg} {
+    flex-direction: column;
+  }
 `;
 
-const ButtonS = styled.button``;
+const ButtonWrapperS = styled.div`
+  display: flex;
+  margin-top: 20px;
+`;
